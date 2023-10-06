@@ -5,9 +5,9 @@ import cvFile from "../../../../file/Ezekiel-Fajuyagbe.pdf"
 
 export default function Banner() {
   return (
-    <div id="home" className="flex flex-col lg:flex-row gap-[50px] pt-[100px] sm:pt-[150px]">
-      <div className="w-full">
-        <div className="w-full h-full sm:w-[500px] sm:h-[500px] rounded-full overflow-hidden">
+    <div id="home" className="flex flex-col lg:flex-row gap-[50px] pt-[100px] lg:pt-[150px]">
+      <div className="w-full lg:pt-0">
+        <div className="max-[450px]:w-[200px] max-[450px]:h-[200px] w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
           <img src={avatar} alt="avatar" />
         </div>
         {/* <img src={heroImg} alt="hero-img" /> */}
