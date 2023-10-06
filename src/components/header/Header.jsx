@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
+import cvFile from "../../file/Ezekiel-Fajuyagbe.pdf"
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -33,7 +34,7 @@ export default function Header() {
                 <a href="#projects">WORKS</a>
               </li>
               <li>
-                <Link to="">VIEW RESUME</Link>
+                <Link to={cvFile} target="_blank">VIEW RESUME</Link>
               </li>
               <li>
                 <a href="#contact">HIRE ME</a>
