@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import heroImg from "../../../../assets/hero-img.12da278e.png";
 import avatar from "../../../../assets/photo.png";
 import cvFile from "../../../../file/Ezekiel-Fajuyagbe.pdf"
 
@@ -7,10 +6,9 @@ export default function Banner() {
   return (
     <div id="home" className="flex flex-col lg:flex-row gap-[50px] pt-[100px] lg:pt-[150px]">
       <div className="w-full lg:pt-0">
-        <div className="max-[450px]:w-[200px] max-[450px]:h-[200px] w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
+        <div className="max-[450px]:w-[200px] bg-yellow-500 max-[450px]:h-[200px] w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
           <img src={avatar} alt="avatar" />
         </div>
-        {/* <img src={heroImg} alt="hero-img" /> */}
       </div>
       <div className="w-full pt-[0px] lg:pt-[80px]">
         <h1 className="text-xl mb-5 mt-1">HI THERE I&apos;m</h1>
