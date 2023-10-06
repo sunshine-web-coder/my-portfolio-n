@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import heroImg from "../../../../assets/hero-img.12da278e.png";
+import cvFile from "../../../../file/Ezekiel-Fajuyagbe.pdf"
 
 export default function Banner() {
   return (
@@ -18,6 +20,9 @@ export default function Banner() {
           Proficient in JavaScript, React Js, HTML, CSS, and modern frontend
           libraries and frameworks.
         </p>
+        <div className="mt-[40px]">
+          <Link to={cvFile} target="_blank" className="bg-yellow-400 hover:bg-yellow-400/90 rounded p-3 pl-6 pr-6 text-[#333333] font-bold">VIEW RESUME</Link>
+        </div>
       </div>
     </div>
   );
