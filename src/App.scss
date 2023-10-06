@@ -1,0 +1,8 @@
+.navMenu {
+  @media screen and (max-width: 768px) {
+    border: 1px solid red;
+    position: relative;
+    z-index: 99999;
+    width: 100%;
+  }
+}
