@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import heroImg from "../../../../assets/hero-img.12da278e.png";
+// import heroImg from "../../../../assets/hero-img.12da278e.png";
 import avatar from "../../../../assets/photo.png";
 import cvFile from "../../../../file/Ezekiel-Fajuyagbe.pdf"
 
