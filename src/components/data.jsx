@@ -1,5 +1,5 @@
-import vincechainImg from "../assets/vincechain.png";
-import ispsumImg from "../assets/ispsum.png";
+import vincechainImg from "../assets/projects/vincechain.png";
+import ispsumImg from "../assets/projects/ispsum.png";
 import tailwindImg from "../assets/taiwindcss.png";
 
 export const projectData = [
