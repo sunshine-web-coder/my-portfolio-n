@@ -23,7 +23,7 @@ export default function Banner() {
           libraries and frameworks.
         </p>
         <div className="mt-[40px]">
-          <Link to={cvFile} target="_blank" className="bg-yellow-400 hover:bg-yellow-400/90 rounded p-3 pl-6 pr-6 text-[#333333] font-bold">VIEW RESUME</Link>
+          <a href={cvFile} rel="noreferrer" target="_blank" className="bg-yellow-400 hover:bg-yellow-400/90 rounded p-3 pl-6 pr-6 text-[#333333] font-bold">VIEW RESUME</a>
         </div>
       </div>
     </div>

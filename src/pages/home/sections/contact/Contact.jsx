@@ -1,16 +1,19 @@
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Input } from "../../../../components/input/Input";
 import { Textarea } from "../../../../components/textarea/Textarea";
 import Button from "../../../../components/button/Button";
 import { contactFormValidate } from "../../../../components/validateForm/contactFormValidate";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    full_name: "",
-    email: "",
-    message: "",
+    user_full_name: "",
+    user_email: "",
+    user_message: "",
   });
+
+  const form = useRef();
 
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,69 +26,102 @@ export default function Contact() {
     });
   };
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const errors = contactFormValidate(formData);
+
+    if (Object.keys(errors).length === 0) {
+      setIsSubmitting(true);
+      emailjs
+        .sendForm(
+          "service_5ne6zte",
+          "template_0po0ad8",
+          form.current,
+          "user_smVmLdKLZToLPUntDjJ3X"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            toast.success(
+              "Form submitted successfully!, We'll get back to you as soon as possible"
+            );
+            setIsSubmitting(false);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    } else {
+      setFormErrors(errors);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const errors = contactFormValidate(formData);
     if (Object.keys(errors).length === 0) {
-        setIsSubmitting(true)
-        toast.success("Form submitted successfully!, We'll get back to you as soon as possible")
-        setIsSubmitting(false)
-      } else {
-        setFormErrors(errors);
-      }
+      setIsSubmitting(true);
+      toast.success(
+        "Form submitted successfully!, We'll get back to you as soon as possible"
+      );
+      setIsSubmitting(false);
+    } else {
+      setFormErrors(errors);
+    }
   };
 
   return (
     <div id="contact" className="mt-[10px] md:mt-[90px] pt-[100px] md:pt-0">
-      <h2 className="text-2xl mb-2 font-thin font-[Arial]">CONTACT ME</h2>
+       <h2 className="text-2xl mb-2 font-thin font-[Arial]">CONTACT ME</h2>
       <h3 className="text-4xl">Let&apos;s have a chat!</h3>
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mt-[60px]">
         <form
-          onSubmit={handleSubmit}
+        ref={form}
+          onSubmit={sendEmail}
           className="flex flex-col gap-4 w-full p-4"
         >
           <div>
             <Input
               type="text"
-              id="full_name"
-              name="full_name"
-              placeholder="First Name"
-              value={formData.full_name}
+              id="user_full_name"
+              name="user_full_name"
+              placeholder="Full Name"
+              value={formData.user_full_name}
               onChange={handleInputChange}
             />
-            {formErrors.full_name && (
+            {formErrors.user_full_name && (
               <div className="text-[#a94442] text-sm font-normal mt-3">
-                {formErrors.full_name}
+                {formErrors.user_full_name}
               </div>
             )}
           </div>
           <div>
             <Input
               type="email"
-              id="email"
-              name="email"
+              id="user_email"
+              name="user_email"
               placeholder="Mail"
-              value={formData.email}
+              value={formData.user_email}
               onChange={handleInputChange}
             />
-            {formErrors.email && (
+            {formErrors.user_email && (
               <div className="text-[#a94442] text-sm font-normal mt-3">
-                {formErrors.email}
+                {formErrors.user_email}
               </div>
             )}
           </div>
           <div>
             <Textarea
               placeholder="Message"
-              name="message"
-              id="message"
+              name="user_message"
+              id="user_message"
               value={formData.message}
               onChange={handleInputChange}
             />
-            {formErrors.message && (
+            {formErrors.user_message && (
               <div className="text-[#a94442] text-sm font-normal mt-3">
-                {formErrors.message}
+                {formErrors.user_message}
               </div>
             )}
           </div>

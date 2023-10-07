@@ -34,7 +34,7 @@ export default function Header() {
                 <a href="#projects">WORKS</a>
               </li>
               <li>
-                <Link to={cvFile} target="_blank">VIEW RESUME</Link>
+                <a href={cvFile} rel="noreferrer" target="_blank">VIEW RESUME</a>
               </li>
               <li>
                 <a href="#contact">HIRE ME</a>
