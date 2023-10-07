@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import avatar from "../../../../assets/photo.png";
 import cvFile from "../../../../file/Ezekiel-Fajuyagbe.pdf"
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Input } from "../../../../components/input/Input";
 import { Textarea } from "../../../../components/textarea/Textarea";
 import Button from "../../../../components/button/Button";
@@ -29,7 +29,7 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
     const errors = contactFormValidate(formData);
-
+  
     if (Object.keys(errors).length === 0) {
       setIsSubmitting(true);
       emailjs
@@ -42,6 +42,12 @@ export default function Contact() {
         .then(
           (result) => {
             console.log(result.text);
+            setFormData({
+              user_full_name: "", // Clear the full name field
+              user_email: "", // Clear the email field
+              user_message: "", // Clear the message field
+            });
+            setFormErrors({});
             toast.success(
               "Form submitted successfully!, We'll get back to you as soon as possible"
             );
@@ -55,21 +61,7 @@ export default function Contact() {
       setFormErrors(errors);
     }
   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const errors = contactFormValidate(formData);
-    if (Object.keys(errors).length === 0) {
-      setIsSubmitting(true);
-      toast.success(
-        "Form submitted successfully!, We'll get back to you as soon as possible"
-      );
-      setIsSubmitting(false);
-    } else {
-      setFormErrors(errors);
-    }
-  };
+  
 
   return (
     <div id="contact" className="mt-[10px] md:mt-[90px] pt-[100px] md:pt-0">
@@ -116,7 +108,7 @@ export default function Contact() {
               placeholder="Message"
               name="user_message"
               id="user_message"
-              value={formData.message}
+              value={formData.user_message}
               onChange={handleInputChange}
             />
             {formErrors.user_message && (
